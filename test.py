@@ -82,7 +82,16 @@ def getPhotoPageUrl(photoUrl):
 	try:
 		req = request.Request(photoUrl, headers=headers1 or headers2 or headers3)
 		html = request.urlopen(req)
-		bsObj = BeautifulSoup(html.read(), 'lxml')
+		read = html.read()
+		if html.info().get('Content-Encoding') == 'gzip' :
+			import gzip
+			import io
+			readdata = io.StringIO(read)
+			readgz = gzip.GzipFile(fileobj=readdata)
+			htmlread = readgz.read()
+
+		bsObj = BeautifulSoup(htmlread, 'lxml')
+		print(bsObj)
 		html.close()
 
 	except UnicodeDecodeError as e:
@@ -97,13 +106,21 @@ def getPhotoPageUrl(photoUrl):
 	print("正在连接到" + photoUrl + ",并解析该链接的页面链接")
 	if bsObj !='':
 		for pageList in bsObj.findAll('div', class_='pagenavi'):
-			for link in pageList.findAll('a', href=re.compile('http://www.mzitu.com/([0-9]+)/([0-9]*$)')):
-				url = link.attrs['href']
-				number = url.replace(photoUrl + "/", "")
-				numberList.append(int(number))
-		numberMax = max(numberList)
-		for i in range(1, numberMax + 1):
-			photoPageUrl = photoUrl + '/' + str(i)
+			a = pageList.findAll('a', href=re.compile('http://www.mzitu.com/([0-9]+)/([0-9]*$)'))
+			print(a[len(a) - 2].attrs['href'])
+			numberMax = a[len(a) - 2].attrs['href'].replace(photoUrl + "/", "")
+
+			# for link in pageList.findAll('a', href=re.compile('http://www.mzitu.com/([0-9]+)/([0-9]*$)')):
+			# 	url = link.attrs['href']
+			# 	print(url)
+			# 	number = url.replace(photoUrl + "/", "")
+			# 	numberList.append(int(number))
+		# numberMax = max(numberList)
+		for i in range(1, int(numberMax) + 1):
+			if i != 1 :
+				photoPageUrl = photoUrl + '/' + str(i)
+			else:
+				photoPageUrl = photoUrl
 			photoPageUrlList.append(photoPageUrl)
 	return photoPageUrlList
 
@@ -115,6 +132,7 @@ def getPhotoImageUrl(photoUrl, path, replaceurl):
 		html.close()
 
 		number = photoUrl.replace(replaceurl + '/', '')
+
 		for temp in bsObj.findAll('div', class_='main-image'):
 			for image in temp.finAll('img'):
 				imageUrl = image.attes['src']
@@ -141,7 +159,10 @@ def getPhotoImageUrl(photoUrl, path, replaceurl):
 		print("-----socket timout:", photoUrl)
 		print("正在获取" + photoUrl + "的图片链接")
 
-
+# urlretrieve()的回调函数，显示当前的下载进度
+# a为已经下载的数据块
+# b为数据块大小
+# c为远程文件的大小
 def jindu(a, b, c):
     if not a:
         print("连接打开")
@@ -167,4 +188,4 @@ if __name__ == '__main__':
 		path = CreateDirectory(photoList)
 		photoPageUrl = getPhotoPageUrl(photoDict.get(photoList))
 		for photoUrl in photoPageUrl:
-			getPhotoImageUrl(photoUrl, path, photoDict.get(photoUrl))
+			getPhotoImageUrl(photoUrl, path, photoDict.get(photoList))
