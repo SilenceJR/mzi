@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52b3107f-dbfd-45b9-9091-74e6e8213ea6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/联通.py" />
+    <list default="true" id="52b3107f-dbfd-45b9-9091-74e6e8213ea6" name="Default" comment="继续写">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,7 +22,7 @@
           <file leaf-file-name="mzi.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/mzi.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-981">
+                <state relative-caret-position="2193">
                   <caret line="129" column="29" lean-forward="false" selection-start-line="129" selection-start-column="11" selection-end-line="129" selection-end-column="29" />
                   <folding>
                     <element signature="e#111#120#0" expanded="true" />
@@ -35,8 +34,8 @@
           <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="631">
-                  <caret line="156" column="29" lean-forward="true" selection-start-line="156" selection-start-column="29" selection-end-line="156" selection-end-column="29" />
+                <state relative-caret-position="247">
+                  <caret line="137" column="35" lean-forward="false" selection-start-line="137" selection-start-column="35" selection-end-line="137" selection-end-column="35" />
                   <folding>
                     <element signature="e#215#230#0" expanded="true" />
                   </folding>
@@ -47,11 +46,11 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="mzi.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/mzi.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="583">
+                <state relative-caret-position="0">
                   <caret line="176" column="39" lean-forward="true" selection-start-line="176" selection-start-column="39" selection-end-line="176" selection-end-column="39" />
                   <folding>
                     <element signature="e#111#120#0" expanded="true" />
@@ -188,7 +187,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.test">
-    <configuration name="联通" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="鑱旈��" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -200,7 +199,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="mzi" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/联通.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/鑱旈��.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -342,14 +341,14 @@
       <item index="1" class="java.lang.String" itemvalue="Python.test" />
       <item index="2" class="java.lang.String" itemvalue="Python.1" />
       <item index="3" class="java.lang.String" itemvalue="Python.3" />
-      <item index="4" class="java.lang.String" itemvalue="Python.联通" />
+      <item index="4" class="java.lang.String" itemvalue="Python.鑱旈��" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.test" />
-        <item index="1" class="java.lang.String" itemvalue="Python.联通" />
-        <item index="2" class="java.lang.String" itemvalue="Python.3" />
-        <item index="3" class="java.lang.String" itemvalue="Python.1" />
+        <item index="0" class="java.lang.String" itemvalue="Python.鑱旈��" />
+        <item index="1" class="java.lang.String" itemvalue="Python.3" />
+        <item index="2" class="java.lang.String" itemvalue="Python.1" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test" />
         <item index="4" class="java.lang.String" itemvalue="Python.mzi" />
       </list>
     </recent_temporary>
@@ -366,9 +365,34 @@
       <created>1498444352396</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1498444352396</updated>
+      <updated>1521008608169</updated>
     </task>
-    <servers />
+    <task id="LOCAL-00001" summary="继续写">
+      <created>1521008073769</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1521008608103</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers>
+      <GitOSC shared="false" url="https://gitee.com">
+        <option name="assignedIssuesOnly" value="false" />
+        <commitMessageFormat>{id} {summary}</commitMessageFormat>
+        <password />
+        <token>df9adfc8dfcbdfc9dfccdf9cdfc8dfccdf98df9adfcbdf9adf99df92dfcbdfccdf99df9edf9ddfccdfcbdfcedf98dfc9dfcfdf9fdf92df93dfcedfcbdf92dfc8</token>
+        <option name="loginAnonymously" value="false" />
+        <option name="preferredCloseTaskState" />
+        <option name="preferredOpenTaskState" />
+        <option name="repoAuthor" value="Silence丶J" />
+        <option name="repoName" value="mzi" />
+        <option name="shouldFormatCommitMessage" value="false" />
+        <option name="useHttpAuthentication" value="false" />
+        <option name="useProxy" value="false" />
+        <option name="user" value="" />
+        <username />
+      </GitOSC>
+    </servers>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -381,11 +405,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27132195" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44940153" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44940153" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -406,7 +431,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="继续写" />
+    <option name="LAST_COMMIT_MESSAGE" value="继续写" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -755,22 +781,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mzi.py">
+    <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-981">
-          <caret line="129" column="29" lean-forward="false" selection-start-line="129" selection-start-column="11" selection-end-line="129" selection-end-column="29" />
+        <state relative-caret-position="247">
+          <caret line="137" column="35" lean-forward="false" selection-start-line="137" selection-start-column="35" selection-end-line="137" selection-end-column="35" />
           <folding>
-            <element signature="e#111#120#0" expanded="true" />
+            <element signature="e#215#230#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
+    <entry file="file://$PROJECT_DIR$/mzi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="156" column="29" lean-forward="true" selection-start-line="156" selection-start-column="29" selection-end-line="156" selection-end-column="29" />
+        <state relative-caret-position="0">
+          <caret line="176" column="39" lean-forward="true" selection-start-line="176" selection-start-column="39" selection-end-line="176" selection-end-column="39" />
           <folding>
-            <element signature="e#215#230#0" expanded="true" />
+            <element signature="e#111#120#0" expanded="true" />
           </folding>
         </state>
       </provider>
