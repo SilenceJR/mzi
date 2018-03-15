@@ -74,7 +74,7 @@ def GetXiangceUrl(siteUrl):
     XiangceZidian = OrderedDict()  # 声明字典,并排序
     print("正在连接到网站" + siteUrl)
     print(bsObj)
-    print(bsObj.findAll("a", href=re.compile("^[/u2E80-/u9FFF]+$")))
+    # print(bsObj.findAll("a", href=re.compile("^[/u2E80-/u9FFF]+$")))
     for templist in bsObj.findAll("a", href=re.compile("http://www.mzitu.com/([0-9]+)")):  # 正则匹配相册链接标签
         i = i + 1
         xiangceUrl = templist.attrs['href']
@@ -225,16 +225,16 @@ def jindu(a, b, c):
 # GetPageImageUrl("http://www.mzitu.com/85695/2","E:\Python\Python妹子图","http://www.mzitu.com/85695")
 if __name__ == '__main__':
     XiangCe = GetXiangceUrl("http://www.mzitu.com/all")  # 返回字典,并将返回字典排序
-    # for xiangceurllist in XiangCe.keys():
-    #     print("相册名字" + xiangceurllist)  # 相册名字
-    #     # print(XiangCe.get(xiangceurllist))#相册链接
-    #     mypath = CreateDirectory(xiangceurllist)
-    #     # print(mypath)
-    #     XiangCePageUrl = GetXiangcePageUrl(XiangCe.get(xiangceurllist))
-    #     # time.sleep(1)
-    #     # print(XiangCePageUrl)
-    #     for xiangcepageurllist in XiangCePageUrl:
-    #         # print(xiangcepageurllist)
-    #         # print(XiangCePageUrl.index(xiangcepageurllist))
-    #         GetPageImageUrl(xiangcepageurllist, mypath, XiangCe.get(xiangceurllist))
-    #         time.sleep(1)
+    for xiangceurllist in XiangCe.keys():
+        print("相册名字" + xiangceurllist)  # 相册名字
+        # print(XiangCe.get(xiangceurllist))#相册链接
+        mypath = CreateDirectory(xiangceurllist)
+        # print(mypath)
+        XiangCePageUrl = GetXiangcePageUrl(XiangCe.get(xiangceurllist))
+        # time.sleep(1)
+        # print(XiangCePageUrl)
+        for xiangcepageurllist in XiangCePageUrl:
+            # print(xiangcepageurllist)
+            # print(XiangCePageUrl.index(xiangcepageurllist))
+            GetPageImageUrl(xiangcepageurllist, mypath, XiangCe.get(xiangceurllist))
+            time.sleep(1)

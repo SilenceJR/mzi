@@ -30,6 +30,10 @@ headers2 = {
 headers3 = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'}
 
+headers4 = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0',
+			'Referer':''
+			}
+
 
 def getPhotoUrl(siteUrl) :
 	"""
@@ -37,17 +41,7 @@ def getPhotoUrl(siteUrl) :
 	:param siteUrl:
 	:return:
 	"""
-	try:
-		req = request.Request(siteUrl, headers= headers1 or headers2 or headers3)
-		http = request.urlopen(req)
-		bsObj = BeautifulSoup(http.read(), 'lxml')
-		http.close()
-	except UnicodeDecodeError as e:
-		print("-----UnicodeDecodeError url", siteUrl)
-	except urllib.error.URLError as e:
-		print("-----URLError url", siteUrl)
-	except socket.timeout as e:
-		print("-----socket timeout:", siteUrl)
+	bsObj = getBsObj(siteUrl)
 
 	i = 0
 	# 申明字典
@@ -77,29 +71,25 @@ def CreateDirectory(DirectoryName):
 		print(root + "".join(DirectoryNameNew) + "已经存在")
 	return path
 
-def getPhotoPageUrl(photoUrl):
-
-	try:
-		req = request.Request(photoUrl, headers=headers1 or headers2 or headers3)
+def getBsObj(url):
+	try :
+		req = request.Request(url, headers=headers1 or headers2 or headers3)
 		html = request.urlopen(req)
-		read = html.read()
-		if html.info().get('Content-Encoding') == 'gzip' :
-			import gzip
-			import io
-			readdata = io.StringIO(read)
-			readgz = gzip.GzipFile(fileobj=readdata)
-			htmlread = readgz.read()
-
-		bsObj = BeautifulSoup(htmlread, 'lxml')
-		print(bsObj)
+		bsObj = BeautifulSoup(html.read(), 'lxml')
 		html.close()
 
-	except UnicodeDecodeError as e:
+	except UnicodeDecodeError as e :
 		print("-----UnicodeDecodeError url", photoUrl)
 	except urllib.error.URLError as e :
 		print("-----urlError url:", photoUrl)
 	except socket.timeout as e :
 		print("-----socket timout:", photoUrl)
+
+	return bsObj
+
+
+def getPhotoPageUrl(photoUrl):
+	bsObj = getBsObj(photoUrl)
 
 	numberList = []
 	photoPageUrlList = []
@@ -107,7 +97,6 @@ def getPhotoPageUrl(photoUrl):
 	if bsObj !='':
 		for pageList in bsObj.findAll('div', class_='pagenavi'):
 			a = pageList.findAll('a', href=re.compile('http://www.mzitu.com/([0-9]+)/([0-9]*$)'))
-			print(a[len(a) - 2].attrs['href'])
 			numberMax = a[len(a) - 2].attrs['href'].replace(photoUrl + "/", "")
 
 			# for link in pageList.findAll('a', href=re.compile('http://www.mzitu.com/([0-9]+)/([0-9]*$)')):
@@ -125,39 +114,46 @@ def getPhotoPageUrl(photoUrl):
 	return photoPageUrlList
 
 def getPhotoImageUrl(photoUrl, path, replaceurl):
-	try:
-		req = request.Request(photoUrl, headers=headers1 or headers2 or headers3)
-		html = request.urlopen(req)
-		bsObj = BeautifulSoup(html.read(), 'lxml')
-		html.close()
+	bsObj = getBsObj(photoUrl)
 
-		number = photoUrl.replace(replaceurl + '/', '')
+	number = photoUrl.replace(replaceurl + '/', '')
+
+	if number == replaceurl :
+		number = 1
+
+	try:
 
 		for temp in bsObj.findAll('div', class_='main-image'):
-			for image in temp.finAll('img'):
-				imageUrl = image.attes['src']
+			for imag in temp.findAll('img'):
+				imageUrl = imag.attrs['src']
 
-				ImageName = image.attes['alt']
+				ImageName = imag.attrs['alt']
 				ImageNameNew = []
 				for l in ImageName:
 					if l != '/' and l != " " and l != "\\" and l != "." :
 						ImageNameNew.append(l)
 				if len(ImageNameNew) != 0:
 					print("正在下载文件：" + str(path) + "\\" + "".join(ImageNameNew) + str(number) + ".jpg")  # join将列表转为字符串
-					try :
-						urlretrieve(imageUrl, str(path) + '\\' + ''.join(ImageNameNew) + str(number) + '.jpg', jindu)
-						while(True == jindu):
-							print("下载完成")
-							break
-					except Exception as e:
-						time.sleep(10)
-	except UnicodeDecodeError as e:
-		print("-----UnicodeDecodeError url", photoUrl)
-	except urllib.error.URLError as e :
-		print("-----urlError url:", photoUrl)
-	except socket.timeout as e :
-		print("-----socket timout:", photoUrl)
-		print("正在获取" + photoUrl + "的图片链接")
+
+					down(imageUrl, str(path), "".join(ImageNameNew) + str(number) + ".jpg")
+					#
+					# try :
+					# 	urlretrieve(imageUrl, str(path) + '\\' + ''.join(ImageNameNew) + str(number) + '.jpg', jindu)
+					# 	while(True == jindu):
+					# 		print("下载完成")
+					# 		break
+					# except Exception as e:
+					# 	print(e)
+					# 	time.sleep(10)
+	except Exception as e:
+		print(e)
+
+def down(imageUrl, path, imageName):
+	headers4['Referer'] = imageUrl
+	html = request.urlopen(request.Request(imageUrl, headers=headers4))
+	f = open(path + '/' + imageName, 'wb')
+	f.write(html.read())
+	f.close()
 
 # urlretrieve()的回调函数，显示当前的下载进度
 # a为已经下载的数据块
