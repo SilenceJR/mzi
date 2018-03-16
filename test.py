@@ -63,7 +63,7 @@ def CreateDirectory(DirectoryName):
 	if DirectoryName == '':
 		DirectoryNameNew = '新建文件夹'
 	for l in DirectoryName:
-		if l != '/' and l != " " and l != "\\" and l != "." and l != '?' and l != "？" and l != "\"" and l != "*" and l != "<" and l != ">" :
+		if l != '/' and l != " " and l != "\\" and l != "." and l != '?' and l != "？" and l != "\"" and l != "*" and l != "<" and l != ">" and l != ":":
 			DirectoryNameNew.append(l)
 	root = 'E:\\Python\\Python妹子图\\'
 	path = root + "".join(DirectoryNameNew)
@@ -142,7 +142,7 @@ def getPhotoImageUrl(photoUrl, path, replaceurl):
 				ImageName = imag.attrs['alt']
 				ImageNameNew = []
 				for l in ImageName:
-					if l != '/' and l != " " and l != "\\" and l != "." and l != '?' and l != "？" and l != "\"" and l != "*" and l != "<" and l != ">":
+					if l != '/' and l != " " and l != "\\" and l != "." and l != '?' and l != "？" and l != "\"" and l != "*" and l != "<" and l != ">" and l != ":":
 						ImageNameNew.append(l)
 				if len(ImageNameNew) != 0:
 					print("正在下载文件：" + str(path) + "\\" + "".join(ImageNameNew) + str(number) + ".jpg")  # join将列表转为字符串
